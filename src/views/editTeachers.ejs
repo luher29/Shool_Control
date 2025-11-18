@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css">
+    <title>School Control</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mb-2">
+            <!--Aquí va la navbar-->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <a class="navbar-brand">Editar a <%= teacher.teacher_id %></a>
+                    </div>
+                    <button class="btn btn-outline-danger me-2" type="button">Cancelar</button>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 position-absolute top-50 start-50 translate-middle">
+                <!--Aquí va el formulario-->
+                <div class="position-relative card">
+                    <div class="card-body">
+                        <form action="/api/teachers/updateOne/<%= teacher.teacher_id %>" method="POST">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="txtTeacherId" class="form-label">Número de control</label>
+                                    <input type="text" class="form-control" id="txtTeacherId" name="teacher_id"
+                                        placeholder="X22390055" value="<%= teacher.teacher_id %>" disabled />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="txtName" class="form-label">Nombres</label>
+                                    <input type="text" class="form-control" id="txtName" name="name"
+                                        placeholder="Pedro Pablo" value="<%= teacher.name %>" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="txtLastName" class="form-label">Apellidos</label>
+                                    <input type="text" class="form-control" id="txtLastName" name="lastname"
+                                        placeholder="Pica Papas" value="<%= teacher.lastname %>" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="txtAge" class="form-label">Edad</label>
+                                    <input type="number" class="form-control" id="txtAge" name="age" placeholder="45"
+                                        value="<%= teacher.age %>" />
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class="col-lg-6">
+                                    <label for="txtEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="txtEmail" name="email"
+                                        placeholder="holamundo@gmail.com" value="<%= teacher.email %>" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="txtArea" class="form-label">Area</label>
+                                    <input type="text" class="form-control" id="txtArea" name="area"
+                                        placeholder="Sistemas" value="<%= teacher.area %>" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="txtSalary" class="form-label">Salario</label>
+                                    <input type="text" class="form-control" id="txtSalary" name="salary"
+                                        placeholder="15,000" value="<%= teacher.salary %>" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="txtYears_of_service" class="form-label">Años de Servicio</label>
+                                    <input type="number" class="form-control" id="txtYears_of_service"
+                                        name="years_of_service" placeholder="15" value="<%= teacher.years_of_service %>" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a href="/api/teachers/getAll" class="btn btn-danger mt-3">Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
