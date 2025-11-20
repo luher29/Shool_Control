@@ -4,10 +4,10 @@ studentsControllers.getAll = (req, res) => {
     //Aqui le vamos a pedir los datos al DAO 
     //Aqui vamos a responder al cliente
     studentsDaos.getAll()
-        //.then((students) => {res.json({ data: students })})
+        .then((students) => {res.json({ data: students })})
         .then(students => {
-            //res.json({ data: students })  
-            res.render('indexStudents.ejs', { students })
+            res.json({ data: students })  
+           res.render('indexStudents.ejs', { students })
         })
         .catch((err) => {
             res.status(500).json({
@@ -20,13 +20,6 @@ studentsControllers.getAll = (req, res) => {
 studentsControllers.getOne = (req, res) => {
     studentsDaos.getOne(req.params.student_id)
         .then((student) => {
-           
-            student ?
-                res.render('edit.ejs', {student}) :
-                res.status(404).json({
-                    data: { message: "Student not found " }
-                });
-            /*
             if (student != null) {
                 res.json({
                     data: {
@@ -40,7 +33,6 @@ studentsControllers.getOne = (req, res) => {
             }
         })
     }
-    */
         })
         .catch((err) => {
             res.status(500).json({
