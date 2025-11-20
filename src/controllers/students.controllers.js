@@ -20,11 +20,11 @@ studentsControllers.getAll = (req, res) => {
 studentsControllers.getOne = (req, res) => {
     studentsDaos.getOne(req.params.student_id)
         .then((student) => {
-            //condicion ? siEsVerdadero : siEsFalso;
+           
             student ?
                 res.render('edit.ejs', {student}) :
                 res.status(404).json({
-                    data: { message: "Student not found 😔" }
+                    data: { message: "Student not found " }
                 });
             /*
             if (student != null) {
@@ -36,7 +36,7 @@ studentsControllers.getOne = (req, res) => {
             } else {
                 res.status(404).json({
             data: {
-                message: "Student not found 😔"
+                message: "Student not found "
             }
         })
     }
